@@ -1,0 +1,2 @@
+# KataDotNetPossumus
+Challenge Wallet Kata

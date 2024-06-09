@@ -117,10 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppKeyNotDefined" xml:space="preserve">
-    <value>App Key '{0}' not defined</value>
+  <data name="Bearer" xml:space="preserve">
+    <value>Bearer</value>
   </data>
-  <data name="NoValidValueEncrypted" xml:space="preserve">
-    <value>Invalid format for encrypted value</value>
+  <data name="JWT" xml:space="preserve">
+    <value>JWT</value>
+  </data>
+  <data name="KataDotNetPossumusApi" xml:space="preserve">
+    <value>Kata DotNet Possumus API</value>
   </data>
 </root>

@@ -22,14 +22,14 @@ namespace KataDotNetPossumus.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Messages {
+    public class Labels {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Messages() {
+        internal Labels() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace KataDotNetPossumus.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KataDotNetPossumus.Resources.Messages", typeof(Messages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KataDotNetPossumus.Resources.Labels", typeof(Labels).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,29 @@ namespace KataDotNetPossumus.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to App Key &apos;{0}&apos; not defined.
+        ///   Looks up a localized string similar to Bearer.
         /// </summary>
-        public static string AppKeyNotDefined {
+        public static string Bearer {
             get {
-                return ResourceManager.GetString("AppKeyNotDefined", resourceCulture);
+                return ResourceManager.GetString("Bearer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid format for encrypted value.
+        ///   Looks up a localized string similar to JWT.
         /// </summary>
-        public static string NoValidValueEncrypted {
+        public static string JWT {
             get {
-                return ResourceManager.GetString("NoValidValueEncrypted", resourceCulture);
+                return ResourceManager.GetString("JWT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kata DotNet Possumus API.
+        /// </summary>
+        public static string KataDotNetPossumusApi {
+            get {
+                return ResourceManager.GetString("KataDotNetPossumusApi", resourceCulture);
             }
         }
     }

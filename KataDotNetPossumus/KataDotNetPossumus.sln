@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataDotNetPossumus.Resource
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataDotNetPossumus.SettingHelper", "..\KataDotNetPossumus.SettingHelper\KataDotNetPossumus.SettingHelper.csproj", "{2C7501C1-CF9B-4F62-8739-6E4127035522}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataDotNetPossumus.Enumerations", "..\KataDotNetPossumus.Enumerations\KataDotNetPossumus.Enumerations.csproj", "{6C53393A-55B5-48CE-8DF1-EB6ED3C7B437}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{2C7501C1-CF9B-4F62-8739-6E4127035522}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C7501C1-CF9B-4F62-8739-6E4127035522}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C7501C1-CF9B-4F62-8739-6E4127035522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C53393A-55B5-48CE-8DF1-EB6ED3C7B437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C53393A-55B5-48CE-8DF1-EB6ED3C7B437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C53393A-55B5-48CE-8DF1-EB6ED3C7B437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C53393A-55B5-48CE-8DF1-EB6ED3C7B437}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

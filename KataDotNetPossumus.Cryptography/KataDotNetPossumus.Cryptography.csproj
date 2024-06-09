@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Implementations\" />
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\KataDotNetPossumus.Exceptions\KataDotNetPossumus.Exceptions.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.Resources\KataDotNetPossumus.Resources.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.SettingHelper\KataDotNetPossumus.SettingHelper.csproj" />
   </ItemGroup>
 
 </Project>

@@ -14,4 +14,11 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KataDotNetPossumus.Cryptography\KataDotNetPossumus.Cryptography.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.Enumerations\KataDotNetPossumus.Enumerations.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.Model\KataDotNetPossumus.Model.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.SettingHelper\KataDotNetPossumus.SettingHelper.csproj" />
+  </ItemGroup>
+
 </Project>

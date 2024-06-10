@@ -120,13 +120,31 @@
   <data name="AppKeyNotDefined" xml:space="preserve">
     <value>App Key '{0}' not defined</value>
   </data>
+  <data name="AppKeyWrongFormat" xml:space="preserve">
+    <value>App Key '{0}': wrong format</value>
+  </data>
   <data name="EntityCouldNotBeDeleted" xml:space="preserve">
     <value>The entity could not be deleted</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="InvalidLoginAttempt" xml:space="preserve">
+    <value>Invalid login attempt</value>
   </data>
   <data name="MissingPropertyFormat" xml:space="preserve">
     <value>Property '{0}' is missing</value>
   </data>
   <data name="NoValidValueEncrypted" xml:space="preserve">
     <value>Invalid format for encrypted value</value>
+  </data>
+  <data name="RequiredFieldFormat" xml:space="preserve">
+    <value>Field '{0}' is required</value>
+  </data>
+  <data name="RequiredFieldsFormat" xml:space="preserve">
+    <value>These fields are required: {0}</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>There was an unexpected error, please contact your system administrator</value>
   </data>
 </root>

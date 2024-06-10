@@ -126,4 +126,13 @@
   <data name="KataDotNetPossumusApi" xml:space="preserve">
     <value>Kata DotNet Possumus API</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Unauthorized</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
 </root>

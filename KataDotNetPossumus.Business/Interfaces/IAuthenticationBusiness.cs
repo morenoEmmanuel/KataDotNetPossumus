@@ -13,9 +13,6 @@ public class DtoAuthenticationRequest : DtoSelfSerializable
 {
 	public string? Username { get; set; }
 	public string? Password { get; set; }
-
-	[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-	public bool? IncludeRefreshToken { get; set; }
 }
 
 //TODO: MOVER ESTA CLASE A LA CARPETA CORRESPONDIENTE

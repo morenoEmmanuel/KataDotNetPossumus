@@ -18,6 +18,7 @@
     <ProjectReference Include="..\KataDotNetPossumus.Model\KataDotNetPossumus.Model.csproj" />
     <ProjectReference Include="..\KataDotNetPossumus.Repository\KataDotNetPossumus.Repository.csproj" />
     <ProjectReference Include="..\KataDotNetPossumus.SettingHelper\KataDotNetPossumus.SettingHelper.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.Utils\KataDotNetPossumus.Utils.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

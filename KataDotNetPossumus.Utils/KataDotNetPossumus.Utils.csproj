@@ -7,12 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\KataDotNetPossumus.Exceptions\KataDotNetPossumus.Exceptions.csproj" />
-    <ProjectReference Include="..\KataDotNetPossumus.Repository\KataDotNetPossumus.Repository.csproj" />
   </ItemGroup>
 
 </Project>

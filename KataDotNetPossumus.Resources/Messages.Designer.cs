@@ -70,11 +70,38 @@ namespace KataDotNetPossumus.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to App Key &apos;{0}&apos;: wrong format.
+        /// </summary>
+        public static string AppKeyWrongFormat {
+            get {
+                return ResourceManager.GetString("AppKeyWrongFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The entity could not be deleted.
         /// </summary>
         public static string EntityCouldNotBeDeleted {
             get {
                 return ResourceManager.GetString("EntityCouldNotBeDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid login attempt.
+        /// </summary>
+        public static string InvalidLoginAttempt {
+            get {
+                return ResourceManager.GetString("InvalidLoginAttempt", resourceCulture);
             }
         }
         
@@ -93,6 +120,33 @@ namespace KataDotNetPossumus.Resources {
         public static string NoValidValueEncrypted {
             get {
                 return ResourceManager.GetString("NoValidValueEncrypted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field &apos;{0}&apos; is required.
+        /// </summary>
+        public static string RequiredFieldFormat {
+            get {
+                return ResourceManager.GetString("RequiredFieldFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to These fields are required: {0}.
+        /// </summary>
+        public static string RequiredFieldsFormat {
+            get {
+                return ResourceManager.GetString("RequiredFieldsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an unexpected error, please contact your system administrator.
+        /// </summary>
+        public static string UnexpectedError {
+            get {
+                return ResourceManager.GetString("UnexpectedError", resourceCulture);
             }
         }
     }

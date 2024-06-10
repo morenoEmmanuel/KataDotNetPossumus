@@ -1,4 +1,5 @@
 using System.Reflection;
+using KataDotNetPossumus.Api.Authentication;
 using KataDotNetPossumus.Api.Swagger;
 using KataDotNetPossumus.ApiManager.Implementations;
 using KataDotNetPossumus.ApiManager.Interfaces;
@@ -86,6 +87,10 @@ builder.Services.AddSwaggerGen(c =>
 	c.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
 });
 
+// Authentication
+builder.Services.AddAuthentication(AuthenticationSchemes.Bearer)
+	.AddScheme<BasicAuthenticationOptions, ApiAuthenticationHandler>(AuthenticationSchemes.Bearer, null);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -97,6 +102,8 @@ if (app.Environment.IsDevelopment())
 		options.SwaggerEndpoint($"/swagger/{AppConsts.DefaultApiVersion}/swagger.json", AppConsts.DefaultApiVersion);
 	});
 }
+
+app.UseExceptionHandler("/error");
 
 app.UseHttpsRedirection();
 

@@ -1,4 +1,5 @@
 ﻿using KataDotNetPossumus.Exceptions;
+using KataDotNetPossumus.Resources;
 using Microsoft.Extensions.Options;
 
 namespace KataDotNetPossumus.SettingHelper
@@ -21,7 +22,19 @@ namespace KataDotNetPossumus.SettingHelper
 		#endregion
 
 		#region Keys
-		
+
+		#region Environment
+
+		public string WebAppUrl => GetLocalKeyValue("WebAppUrl");
+
+		#endregion
+
+		#region Data Base
+
+		public string KataDotNetPossumusDatabase => GetLocalKeyValue("KataDotNetPossumusDatabase");
+
+		#endregion
+
 		#region Local Encryption
 
 		public string LocalEncryptionKey => GetLocalKeyValue("LocalEncryptionKey");
@@ -37,10 +50,17 @@ namespace KataDotNetPossumus.SettingHelper
 
 		#endregion
 
+		#region JWT
+
+		public int TokenExpirationHours => GetLocalIntKeyValue("TokenExpirationHours");
+		public string TokenSecret => GetLocalKeyValue("TokenSecret");
+
+		#endregion
+
 		#endregion
 
 		#region Private Methods
-		
+
 		private string GetAppSettingValue(string keyName, bool required, string? alternativeKeyName = null)
 		{
 			if (appSettingsOptions.Keys.ContainsKey(keyName))
@@ -67,6 +87,18 @@ namespace KataDotNetPossumus.SettingHelper
 		private string GetLocalKeyValue(string keyName, bool required = true, string? alternativeKeyName = null)
 		{
 			return GetAppSettingValue(keyName, required, alternativeKeyName);
+		}
+
+		private int GetLocalIntKeyValue(string keyName, bool required = true, string? alternativeKeyName = null)
+		{
+			var keyValue = GetLocalKeyValue(keyName, required, alternativeKeyName);
+
+			return int.TryParse(keyValue, out var val) ? val : throw CreateAppKeyWrongFormatException(keyName);
+		}
+
+		private static FormatException CreateAppKeyWrongFormatException(string keyName)
+		{
+			return new FormatException(string.Format(Messages.AppKeyWrongFormat, keyName));
 		}
 
 		private void SetAppSettings(AppSettingOptions appSettings)

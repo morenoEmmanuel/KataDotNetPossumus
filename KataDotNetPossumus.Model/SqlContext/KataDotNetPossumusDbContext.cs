@@ -1,12 +1,36 @@
 ﻿using KataDotNetPossumus.Model.Entities;
+using KataDotNetPossumus.SettingHelper;
 using Microsoft.EntityFrameworkCore;
 
 namespace KataDotNetPossumus.Model.SqlContext;
 
 public class KataDotNetPossumusDbContext : DbContext
 {
+	#region Dependencies
+
+	private readonly AppSettingHelper appSettingHelper;
+
+	#endregion
+
+	#region Constructors
+
+	public KataDotNetPossumusDbContext(AppSettingHelper appSettingHelper)
+	{
+		this.appSettingHelper = appSettingHelper;
+	}
+
+	#endregion
+
+	#region Overriden Methods
+
+	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+	{
+		optionsBuilder.UseSqlServer(appSettingHelper.KataDotNetPossumusDatabase);
+	}
+
+	#endregion
 	#region Entity Sets
-	
+
 	public DbSet<Account> Account { get; set; }
 	public DbSet<AccountHistory> AccountHistory { get; set; }
 	public DbSet<Currency> Currency { get; set; }

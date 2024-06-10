@@ -1,6 +1,8 @@
-﻿namespace KataDotNetPossumus.ApiManager.Implementations;
+﻿using KataDotNetPossumus.ApiManager.Interfaces;
 
-public class CurrencyApiManager
+namespace KataDotNetPossumus.ApiManager.Implementations;
+
+public class CurrencyApiManager : ICurrencyApiManager
 {
 	
 }

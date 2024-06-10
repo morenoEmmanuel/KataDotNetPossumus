@@ -1,9 +1,16 @@
+using System.Reflection;
 using KataDotNetPossumus.Api.Swagger;
+using KataDotNetPossumus.ApiManager.Implementations;
+using KataDotNetPossumus.ApiManager.Interfaces;
+using KataDotNetPossumus.Business.Implementations;
+using KataDotNetPossumus.Business.Interfaces;
 using KataDotNetPossumus.Cryptography.Implementations;
 using KataDotNetPossumus.Cryptography.Interfaces;
 using KataDotNetPossumus.CurrentContext;
 using KataDotNetPossumus.Enumerations;
 using KataDotNetPossumus.Model.SqlContext;
+using KataDotNetPossumus.Repository.Sql.Implementations;
+using KataDotNetPossumus.Repository.Sql.Interfaces;
 using KataDotNetPossumus.Resources;
 using KataDotNetPossumus.SettingHelper;
 using Microsoft.OpenApi.Models;
@@ -33,6 +40,7 @@ builder.Services.AddScoped<ContextData>();
 // SQL Repositories
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IAccountHistoryRepository, AccountHistoryRepository>();
+builder.Services.AddScoped<IAuthenticationBusiness, AuthenticationBusiness>();
 builder.Services.AddScoped<ICurrencyRepository, CurrencyRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IWalletRepository, WalletRepository>();
@@ -62,7 +70,11 @@ builder.Services.AddSwaggerGen(c =>
 		Title = Labels.KataDotNetPossumusApi,
 		Version = AppConsts.DefaultApiVersion
 	});
-	
+
+	var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+	var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+	c.IncludeXmlComments(xmlPath);
+
 	c.AddSecurityDefinition(AuthenticationSchemes.Bearer, new OpenApiSecurityScheme
 	{
 		Type = SecuritySchemeType.Http,
@@ -80,7 +92,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
-	app.UseSwaggerUI();
+	app.UseSwaggerUI(options =>
+	{
+		options.SwaggerEndpoint($"/swagger/{AppConsts.DefaultApiVersion}/swagger.json", AppConsts.DefaultApiVersion);
+	});
 }
 
 app.UseHttpsRedirection();

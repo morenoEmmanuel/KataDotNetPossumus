@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DbQueries\" />
-    <Folder Include="Sql\Implementations\" />
-    <Folder Include="Sql\Interfaces\" />
+    <ProjectReference Include="..\KataDotNetPossumus.Enumerations\KataDotNetPossumus.Enumerations.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.Model\KataDotNetPossumus.Model.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.SettingHelper\KataDotNetPossumus.SettingHelper.csproj" />
   </ItemGroup>
 
 </Project>

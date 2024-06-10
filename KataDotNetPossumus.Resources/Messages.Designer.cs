@@ -70,6 +70,24 @@ namespace KataDotNetPossumus.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The entity could not be deleted.
+        /// </summary>
+        public static string EntityCouldNotBeDeleted {
+            get {
+                return ResourceManager.GetString("EntityCouldNotBeDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Property &apos;{0}&apos; is missing.
+        /// </summary>
+        public static string MissingPropertyFormat {
+            get {
+                return ResourceManager.GetString("MissingPropertyFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid format for encrypted value.
         /// </summary>
         public static string NoValidValueEncrypted {

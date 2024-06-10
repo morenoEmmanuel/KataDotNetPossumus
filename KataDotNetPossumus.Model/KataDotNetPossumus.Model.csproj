@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="DataTransferObject\" />
+    <Folder Include="CustomAttributes\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,6 +2,7 @@
 using KataDotNetPossumus.Resources;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text.Encodings.Web;
@@ -40,10 +41,12 @@ public class ApiAuthenticationHandler : AuthenticationHandler<BasicAuthenticatio
 		if (string.IsNullOrWhiteSpace(token)) return AuthenticateResult.Fail(Labels.Unauthorized);
 
 		contextData.Token = token;
-		
+
+		var tokenData = new JwtSecurityTokenHandler().ReadJwtToken(contextData.Token);
+
 		var claims = new List<Claim>
 		{
-				new(ClaimTypes.Name, contextData.Username)
+				new(ClaimTypes.Name, tokenData.Claims.First(p => p.Type == "sub").Value)
 		};
 
 		var identity = new ClaimsIdentity(claims, Scheme.Name);

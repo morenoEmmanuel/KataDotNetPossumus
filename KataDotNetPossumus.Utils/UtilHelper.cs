@@ -1,5 +1,7 @@
 ﻿using KataDotNetPossumus.Exceptions;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace KataDotNetPossumus.Utils
 {
@@ -26,7 +28,16 @@ namespace KataDotNetPossumus.Utils
 					return StatusCodes.Status500InternalServerError;
 			}
 		}
-		
+
+		public static string? Serialize(object? value, bool ignoreNull = false)
+		{
+			return value == null
+				? null
+				: JsonSerializer.Serialize(value, new JsonSerializerOptions
+				{
+					DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+				});
+		}
 		#endregion
 	}
 }

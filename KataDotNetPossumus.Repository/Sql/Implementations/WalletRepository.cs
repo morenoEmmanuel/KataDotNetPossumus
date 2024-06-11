@@ -17,4 +17,21 @@ public class WalletRepository : BaseSqlRepository<Wallet>, IWalletRepository
 	}
 
 	#endregion
+
+	#region Public Methods
+	
+	/// <summary>
+	/// Gets the wallet by user ID.
+	/// </summary>
+	/// <param name="idUser">
+	///		<para>The user ID.</para>
+	/// </param>
+	/// <returns>The wallet.</returns>
+	public async Task<Wallet?> GetWalletByUser(int idUser)
+	{
+		return await FindAsync(p => p.IdUser == idUser
+		                            && p.Status == (int)Enumerations.Enumerations.EntityStatus.ACTIVE);
+	}
+
+	#endregion
 }

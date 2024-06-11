@@ -23,7 +23,7 @@ public class UserRepository : BaseSqlRepository<User>, IUserRepository
 
 	/// <summary>
 	/// 
-	/// Gets the user by its username.
+	/// Indicates if a user is valid.
 	/// </summary>
 	/// <param name="username">
 	///		<para>The username.</para>
@@ -31,8 +31,8 @@ public class UserRepository : BaseSqlRepository<User>, IUserRepository
 	/// <param name="password">
 	///		<para>The password.</para>
 	/// </param>
-	/// <returns>The user.</returns>
-	public async Task<User?> GetByUserNameAndPasswordAsync(string username, string password)
+	/// <returns>True if the user is valid, false other case.</returns>
+	public async Task<User?> ValidateUserAsync(string username, string password)
 	{
 		return await FindAsync(p =>
 			p.Name == username

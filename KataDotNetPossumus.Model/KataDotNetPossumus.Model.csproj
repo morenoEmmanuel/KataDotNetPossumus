@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataTransferObject\" />
     <Folder Include="CustomAttributes\" />
+    <Folder Include="DataTransferObject\Wallet\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\KataDotNetPossumus.CurrentContext\KataDotNetPossumus.CurrentContext.csproj" />
     <ProjectReference Include="..\KataDotNetPossumus.SettingHelper\KataDotNetPossumus.SettingHelper.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.Utils\KataDotNetPossumus.Utils.csproj" />
   </ItemGroup>
 
 </Project>

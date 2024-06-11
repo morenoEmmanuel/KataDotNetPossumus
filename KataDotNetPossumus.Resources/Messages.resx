@@ -126,6 +126,9 @@
   <data name="EntityCouldNotBeDeleted" xml:space="preserve">
     <value>The entity could not be deleted</value>
   </data>
+  <data name="EntityNotFoundFormat" xml:space="preserve">
+    <value>{0} not found</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="MissingPropertyFormat" xml:space="preserve">
     <value>Property '{0}' is missing</value>
+  </data>
+  <data name="NamedEntityNotFoundFormat" xml:space="preserve">
+    <value>0} '{1}' not found</value>
   </data>
   <data name="NoValidValueEncrypted" xml:space="preserve">
     <value>Invalid format for encrypted value</value>

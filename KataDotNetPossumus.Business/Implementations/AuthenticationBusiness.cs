@@ -1,5 +1,6 @@
 ﻿using KataDotNetPossumus.Business.Interfaces;
 using KataDotNetPossumus.Exceptions;
+using KataDotNetPossumus.Model.DataTransferObject.Authentication;
 using KataDotNetPossumus.Repository.Sql.Interfaces;
 using KataDotNetPossumus.Resources;
 using KataDotNetPossumus.SettingHelper;
@@ -7,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using KataDotNetPossumus.Model.Entities;
 
 namespace KataDotNetPossumus.Business.Implementations;
 
@@ -48,27 +50,25 @@ public class AuthenticationBusiness : IAuthenticationBusiness
 		if (string.IsNullOrWhiteSpace(requestData?.Username)) throw new RequiredDataException(Labels.Username);
 		if (string.IsNullOrWhiteSpace(requestData.Password)) throw new RequiredDataException(Labels.Password);
 
-		if (await IsValidUserAsync(requestData.Username, requestData.Password))
-		{
-			return new DtoAuthenticationResponse
-			{
-				Token = GenerateJwtToken(requestData.Username)
-			};
-		}
+		var user = await ValidateUserAsync(requestData.Username, requestData.Password);
 
-		throw new UnauthorizedAccessException(Messages.InvalidLoginAttempt);
+		return new DtoAuthenticationResponse
+		{
+			Token = GenerateJwtToken(user)
+		};
 	}
 
 	#endregion
 
 	#region Private Methods
 
-	private string GenerateJwtToken(string username)
+	private string GenerateJwtToken(User user)
 	{
 		var claims = new List<Claim>
 		{
-			new(JwtRegisteredClaimNames.Sub, username),
-			new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+			new(JwtRegisteredClaimNames.Sub, user.Name),
+			new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+			new(ClaimTypes.NameIdentifier, user.IdUser.ToString())
 		};
 
 		var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(appSettingHelper.TokenSecret));
@@ -86,13 +86,13 @@ public class AuthenticationBusiness : IAuthenticationBusiness
 		return new JwtSecurityTokenHandler().WriteToken(token);
 	}
 
-	private async Task<bool> IsValidUserAsync(string username, string password)
+	private async Task<User?> ValidateUserAsync(string username, string password)
 	{
-		var user = await userRepository.GetByUserNameAndPasswordAsync(username, password);//TODO: DEVOLVER UN BOOL
+		var user = await userRepository.ValidateUserAsync(username, password);
 
 		if (user == null) throw new UnauthorizedAccessException(Labels.Unauthorized);
 
-		return true;
+		return user;
 	}
 
 	#endregion

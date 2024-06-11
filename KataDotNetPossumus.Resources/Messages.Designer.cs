@@ -88,6 +88,15 @@ namespace KataDotNetPossumus.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} not found.
+        /// </summary>
+        public static string EntityNotFoundFormat {
+            get {
+                return ResourceManager.GetString("EntityNotFoundFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
@@ -111,6 +120,15 @@ namespace KataDotNetPossumus.Resources {
         public static string MissingPropertyFormat {
             get {
                 return ResourceManager.GetString("MissingPropertyFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0} &apos;{1}&apos; not found.
+        /// </summary>
+        public static string NamedEntityNotFoundFormat {
+            get {
+                return ResourceManager.GetString("NamedEntityNotFoundFormat", resourceCulture);
             }
         }
         

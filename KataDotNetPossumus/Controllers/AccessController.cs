@@ -1,4 +1,5 @@
 ﻿using KataDotNetPossumus.Business.Interfaces;
+using KataDotNetPossumus.Model.DataTransferObject.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

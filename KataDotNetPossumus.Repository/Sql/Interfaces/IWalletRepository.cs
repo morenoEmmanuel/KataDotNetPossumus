@@ -4,5 +4,5 @@ namespace KataDotNetPossumus.Repository.Sql.Interfaces;
 
 public interface IWalletRepository : ISqlRepository<Wallet>
 {
-	Task<Wallet?> GetWalletByUser(int idUser);
+	Task<Wallet?> GetWalletByUserAsync(int idUser);
 }

@@ -8,8 +8,16 @@
 
   <ItemGroup>
     <Folder Include="DataTransferObjects\Currency\" />
-    <Folder Include="Implementations\" />
     <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Skelp.CurrencyApiClient" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KataDotNetPossumus.SettingHelper\KataDotNetPossumus.SettingHelper.csproj" />
+    <ProjectReference Include="..\KataDotNetPossumus.Utils\KataDotNetPossumus.Utils.csproj" />
   </ItemGroup>
 
 </Project>

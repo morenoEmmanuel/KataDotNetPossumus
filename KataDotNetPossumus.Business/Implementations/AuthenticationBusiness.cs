@@ -1,6 +1,7 @@
 ﻿using KataDotNetPossumus.Business.Interfaces;
 using KataDotNetPossumus.Exceptions;
 using KataDotNetPossumus.Model.DataTransferObject.Authentication;
+using KataDotNetPossumus.Model.Entities;
 using KataDotNetPossumus.Repository.Sql.Interfaces;
 using KataDotNetPossumus.Resources;
 using KataDotNetPossumus.SettingHelper;
@@ -8,7 +9,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using KataDotNetPossumus.Model.Entities;
 
 namespace KataDotNetPossumus.Business.Implementations;
 

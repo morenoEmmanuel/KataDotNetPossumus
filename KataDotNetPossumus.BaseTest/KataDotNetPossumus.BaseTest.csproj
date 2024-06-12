@@ -10,8 +10,15 @@
     <Folder Include="Builders\ApiManager\" />
     <Folder Include="Builders\Business\" />
     <Folder Include="Builders\Utils\" />
-    <Folder Include="Builders\Settings\" />
-    <Folder Include="Builders\Repository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Moq" Version="4.18.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KataDotNetPossumus.Repository\KataDotNetPossumus.Repository.csproj" />
   </ItemGroup>
 
 </Project>

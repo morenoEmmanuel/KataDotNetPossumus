@@ -46,7 +46,7 @@ namespace KataDotNetPossumus.SettingHelper
 		#region Currency API
 
 		public string CurrencyApiUrl => GetLocalKeyValue("CurrencyApiUrl");
-		public string CurrencyKey => GetLocalKeyValue("CurrencyKey");
+		public string CurrencyApiKey => GetLocalKeyValue("CurrencyKey");
 
 		#endregion
 

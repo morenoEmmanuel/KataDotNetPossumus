@@ -61,6 +61,15 @@ namespace KataDotNetPossumus.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The account is deactivated.
+        /// </summary>
+        public static string AccountIsInactive {
+            get {
+                return ResourceManager.GetString("AccountIsInactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to App Key &apos;{0}&apos; not defined.
         /// </summary>
         public static string AppKeyNotDefined {
@@ -102,6 +111,15 @@ namespace KataDotNetPossumus.Resources {
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insufficient balance.
+        /// </summary>
+        public static string InsufficientBalance {
+            get {
+                return ResourceManager.GetString("InsufficientBalance", resourceCulture);
             }
         }
         

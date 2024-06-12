@@ -41,12 +41,9 @@ namespace KataDotNetPossumus.Api.Controllers
 			switch (ex)
 			{
 				case BadRequestException:
-				//case EntityCannotBeDeletedException:
-				//case EntityExistsException:
 				case NoNotifyException:
-				//case NotFoundException:
+				case NotFoundException:
 				case RequiredDataException:
-				//case ServiceRequestException:
 				case UnauthorizedAccessException:
 					break;
 				default:

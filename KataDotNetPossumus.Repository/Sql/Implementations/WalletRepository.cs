@@ -27,7 +27,7 @@ public class WalletRepository : BaseSqlRepository<Wallet>, IWalletRepository
 	///		<para>The user ID.</para>
 	/// </param>
 	/// <returns>The wallet.</returns>
-	public async Task<Wallet?> GetWalletByUser(int idUser)
+	public async Task<Wallet?> GetWalletByUserAsync(int idUser)
 	{
 		return await FindAsync(p => p.IdUser == idUser
 		                            && p.Status == (int)Enumerations.Enumerations.EntityStatus.ACTIVE);

@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="CustomAttributes\" />
-    <Folder Include="DataTransferObject\Wallet\" />
   </ItemGroup>
 
   <ItemGroup>

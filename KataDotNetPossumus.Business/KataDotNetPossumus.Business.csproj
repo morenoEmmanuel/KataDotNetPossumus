@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KataDotNetPossumus.ApiManager\KataDotNetPossumus.ApiManager.csproj" />
     <ProjectReference Include="..\KataDotNetPossumus.Exceptions\KataDotNetPossumus.Exceptions.csproj" />
     <ProjectReference Include="..\KataDotNetPossumus.Repository\KataDotNetPossumus.Repository.csproj" />
   </ItemGroup>

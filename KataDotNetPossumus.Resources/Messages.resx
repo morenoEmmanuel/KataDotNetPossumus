@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountIsInactive" xml:space="preserve">
+    <value>The account is deactivated</value>
+  </data>
   <data name="AppKeyNotDefined" xml:space="preserve">
     <value>App Key '{0}' not defined</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="InsufficientBalance" xml:space="preserve">
+    <value>Insufficient balance</value>
   </data>
   <data name="InvalidLoginAttempt" xml:space="preserve">
     <value>Invalid login attempt</value>

@@ -1,7 +1,7 @@
 ﻿using KataDotNetPossumus.Exceptions;
 using Microsoft.AspNetCore.Http;
-using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace KataDotNetPossumus.Utils
 {
@@ -14,14 +14,11 @@ namespace KataDotNetPossumus.Utils
 			switch (exception)
 			{
 				case BadRequestException:
-				//case EntityCannotBeDeletedException:
-				//case EntityExistsException:
 				case NoNotifyException:
 				case RequiredDataException:
-				//case ServiceRequestException:
 					return StatusCodes.Status400BadRequest;
-				//case NotFoundException:
-				//	return StatusCodes.Status404NotFound;
+				case NotFoundException:
+					return StatusCodes.Status404NotFound;
 				case UnauthorizedAccessException:
 					return StatusCodes.Status401Unauthorized;
 				default:

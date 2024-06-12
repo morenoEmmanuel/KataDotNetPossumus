@@ -143,7 +143,7 @@ public class WalletBusiness : IWalletBusiness
 		
 		if (account == null && transactionType != TransactionType.DEPOSIT) throw new NotFoundException(Labels.Account);
 
-		if (account != null && account.Status == (int)Enumerations.Enumerations.EntityStatus.DELETED)
+		if (account != null && account.Status == (int)EntityStatus.DELETED)
 		{
 			throw new BadRequestException(Messages.AccountIsInactive);
 		}

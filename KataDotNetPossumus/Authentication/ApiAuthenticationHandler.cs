@@ -49,6 +49,8 @@ public class ApiAuthenticationHandler : AuthenticationHandler<BasicAuthenticatio
 				new(ClaimTypes.Name, tokenData.Claims.First(p => p.Type == "sub").Value)
 		};
 
+		contextData.UserId = Convert.ToInt32(tokenData.Claims.First(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value);
+
 		var identity = new ClaimsIdentity(claims, Scheme.Name);
 		var principal = new GenericPrincipal(identity, new[]
 		{

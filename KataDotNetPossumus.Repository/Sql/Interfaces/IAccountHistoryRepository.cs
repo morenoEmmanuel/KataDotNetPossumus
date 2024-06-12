@@ -4,5 +4,4 @@ namespace KataDotNetPossumus.Repository.Sql.Interfaces;
 
 public interface IAccountHistoryRepository : ISqlRepository<AccountHistory>
 {
-	
 }

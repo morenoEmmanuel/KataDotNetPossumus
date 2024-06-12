@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\KataDotNetPossumus.ApiManager\KataDotNetPossumus.ApiManager.csproj" />
     <ProjectReference Include="..\KataDotNetPossumus.Business\KataDotNetPossumus.Business.csproj" />
-    <ProjectReference Include="..\KataDotNetPossumus.Cryptography\KataDotNetPossumus.Cryptography.csproj" />
     <ProjectReference Include="..\KataDotNetPossumus.Enumerations\KataDotNetPossumus.Enumerations.csproj" />
     <ProjectReference Include="..\KataDotNetPossumus.Model\KataDotNetPossumus.Model.csproj" />
     <ProjectReference Include="..\KataDotNetPossumus.Repository\KataDotNetPossumus.Repository.csproj" />

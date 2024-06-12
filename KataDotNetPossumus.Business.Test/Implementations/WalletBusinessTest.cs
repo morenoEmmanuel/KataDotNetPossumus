@@ -20,7 +20,7 @@ public class WalletBusinessTest
 			null);
 
 		// Act
-		Task Act() => sut.GetBalanceByUserAsync(null);
+		Task Act() => sut.GetBalanceByUserAsync();
 
 		// Assert
 		var exception = await Assert.ThrowsAsync<RequiredDataException>(Act);
@@ -42,7 +42,7 @@ public class WalletBusinessTest
 			walletRepository);
 
 		// Act
-		Task Act() => sut.GetBalanceByUserAsync(1);
+		Task Act() => sut.GetBalanceByUserAsync();
 
 		// Assert
 		var exception = await Assert.ThrowsAsync<NotFoundException>(Act);
@@ -68,7 +68,7 @@ public class WalletBusinessTest
 			walletRepository);
 
 		// Act
-		Task Act() => sut.GetBalanceByUserAsync(1);
+		Task Act() => sut.GetBalanceByUserAsync();
 
 		// Assert
 		var exception = await Assert.ThrowsAsync<NotFoundException>(Act);
@@ -122,7 +122,7 @@ public class WalletBusinessTest
 			walletRepository);
 
 		// Act
-		var act = await sut.GetBalanceByUserAsync(1);
+		var act = await sut.GetBalanceByUserAsync();
 
 		// Assert
 		act?.AccountsBalances.Should().HaveCount(2);

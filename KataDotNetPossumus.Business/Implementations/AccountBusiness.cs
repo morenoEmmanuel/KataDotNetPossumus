@@ -1,5 +1,4 @@
-﻿using Azure.Core;
-using KataDotNetPossumus.ApiManager.Interfaces;
+﻿using KataDotNetPossumus.ApiManager.Interfaces;
 using KataDotNetPossumus.Business.Interfaces;
 using KataDotNetPossumus.CurrentContext;
 using KataDotNetPossumus.Model.DataTransferObject.Wallet;
@@ -67,18 +66,41 @@ public class AccountBusiness : IAccountBusiness
 		return await accountRepository.FindByWalletAndCurrencyAsync(idWallet, idCurrency);
 	}
 
-	public async Task ExchangeAsync(DtoTransaction requestData, DtoExchangeTransaction request)
+	/// <summary>
+	///  Exchange currencies from a wallet.
+	/// </summary>
+	/// <param name="requestData">
+	///		<para>The exchangeData data.</para>
+	/// </param>
+	/// <param name="exchangeData">
+	///		<para>The exchange data.</para>
+	/// </param>
+	/// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
+	public async Task ExchangeAsync(DtoTransaction requestData, DtoExchangeTransaction exchangeData)
 	{
-		//primero obtener cuanta plata se debe depositar
-		var newCurrency = await currencyBusiness.GetByShortNameAsync(request.NewCurrency);
+		var newCurrency = await currencyBusiness.GetByShortNameAsync(exchangeData.NewCurrency);
 
-		var newAmount = await currencyApiManager.GetNewAmountAsync(request.CurrentCurrency, request.NewCurrency, request.Amount.Value);
+		var newAmount = await currencyApiManager.GetNewAmountAsync(exchangeData.CurrentCurrency, exchangeData.NewCurrency, exchangeData.Amount.Value);
+		var accountToDeposit = await accountRepository.FindByWalletAndCurrencyAsync(requestData.IdWallet, requestData.IdNewCurrency);
+
+		if (accountToDeposit == null)
+		{
+			accountToDeposit = new Account
+			{
+				IdWallet = requestData.IdWallet,
+				IdCurrency = newCurrency.IdCurrency,
+				Status = (int)Enumerations.Enumerations.EntityStatus.ACTIVE
+			};
+
+			await accountRepository.CreateAsync(accountToDeposit);
+			await accountRepository.SaveChangesAsync();
+		}
 
 		//deposit
 		await SaveAccountAsync(new DtoTransaction
 		{
 			IdWallet = requestData.IdWallet,
-			IdAccount = requestData.IdAccount,
+			IdAccount = accountToDeposit.IdAccount,
 			IdCurrency = newCurrency.IdCurrency,
 			TransactionAmount = newAmount
 		});
@@ -91,7 +113,7 @@ public class AccountBusiness : IAccountBusiness
 	/// Saves a deposit.
 	/// </summary>
 	/// <param name="requestData">
-	///		<para>The request data.</para>
+	///		<para>The exchangeData data.</para>
 	/// </param>
 	/// <param name="isDeposit">
 	///		<para>Indicates if the transaction is a deposit.</para>

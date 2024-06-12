@@ -7,6 +7,6 @@ public interface IAccountBusiness
 {
 	Task<List<Account>> GetAccountsByWalletAsync(int idWallet);
 	Task<Account?> GetAccountsByWalletAndCurrencyAsync(int idWallet, int idCurrency);
-	Task ExchangeAsync(DtoTransaction requestData, DtoExchangeTransaction request);
+	Task ExchangeAsync(DtoTransaction requestData, DtoExchangeTransaction exchangeData);
 	Task SaveAccountAsync(DtoTransaction requestData, bool isDeposit = true);
 }

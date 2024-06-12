@@ -1,12 +1,9 @@
-using System.Reflection;
 using KataDotNetPossumus.Api.Authentication;
 using KataDotNetPossumus.Api.Swagger;
 using KataDotNetPossumus.ApiManager.Implementations;
 using KataDotNetPossumus.ApiManager.Interfaces;
 using KataDotNetPossumus.Business.Implementations;
 using KataDotNetPossumus.Business.Interfaces;
-using KataDotNetPossumus.Cryptography.Implementations;
-using KataDotNetPossumus.Cryptography.Interfaces;
 using KataDotNetPossumus.CurrentContext;
 using KataDotNetPossumus.Enumerations;
 using KataDotNetPossumus.Model.SqlContext;
@@ -15,6 +12,7 @@ using KataDotNetPossumus.Repository.Sql.Interfaces;
 using KataDotNetPossumus.Resources;
 using KataDotNetPossumus.SettingHelper;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,9 +30,6 @@ builder.Services.AddScoped<AppSettingHelper>();
 // DB Context
 builder.Services.AddDbContext<KataDotNetPossumusDbContext>();
 
-// Encryption
-builder.Services.AddScoped<ILocalEncryptionHelper, LocalEncryptionHelper>();
-
 // Context Data
 builder.Services.AddScoped<ContextData>();
 
@@ -50,7 +45,6 @@ builder.Services.AddScoped<IWalletRepository, WalletRepository>();
 builder.Services.AddScoped<IAccountBusiness, AccountBusiness>();
 builder.Services.AddScoped<IAccountHistoryBusiness, AccountHistoryBusiness>();
 builder.Services.AddScoped<ICurrencyBusiness, CurrencyBusiness>();
-builder.Services.AddScoped<IUserBusiness, UserBusiness>();
 builder.Services.AddScoped<IWalletBusiness, WalletBusiness>();
 
 // Api Managers
@@ -66,10 +60,10 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
 {
-	c.SwaggerDoc(AppConsts.DefaultApiVersion, new OpenApiInfo
+	c.SwaggerDoc(AppConstant.DefaultApiVersion, new OpenApiInfo
 	{
 		Title = Labels.KataDotNetPossumusApi,
-		Version = AppConsts.DefaultApiVersion
+		Version = AppConstant.DefaultApiVersion
 	});
 
 	var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -99,7 +93,7 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI(options =>
 	{
-		options.SwaggerEndpoint($"/swagger/{AppConsts.DefaultApiVersion}/swagger.json", AppConsts.DefaultApiVersion);
+		options.SwaggerEndpoint($"/swagger/{AppConstant.DefaultApiVersion}/swagger.json", AppConstant.DefaultApiVersion);
 	});
 }
 

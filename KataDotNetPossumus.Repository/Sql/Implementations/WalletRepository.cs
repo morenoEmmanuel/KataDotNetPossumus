@@ -23,14 +23,11 @@ public class WalletRepository : BaseSqlRepository<Wallet>, IWalletRepository
 	/// <summary>
 	/// Gets the wallet by user ID.
 	/// </summary>
-	/// <param name="idUser">
-	///		<para>The user ID.</para>
-	/// </param>
 	/// <returns>The wallet.</returns>
-	public async Task<Wallet?> GetWalletByUserAsync(int idUser)
+	public async Task<Wallet?> GetWalletByUserAsync()
 	{
-		return await FindAsync(p => p.IdUser == idUser
-		                            && p.Status == (int)Enumerations.Enumerations.EntityStatus.ACTIVE);
+		return await FindAsync(p => p.IdUser == ContextData.UserId
+									&& p.Status == (int)Enumerations.Enumerations.EntityStatus.ACTIVE);
 	}
 
 	#endregion

@@ -23,24 +23,7 @@ public class BaseRepositoryBuilder<T, TModel> where T : class, ISqlRepository<TM
 	#endregion
 
 	#region Options
-
-	public BaseRepositoryBuilder<T, TModel> SetupMethodDeleteList()
-	{
-		mock
-			.Setup(p => p.DeleteListAsync(It.IsAny<List<TModel>>(), It.IsAny<bool>()));
-
-		return this;
-	}
-
-	public BaseRepositoryBuilder<T, TModel> SetupMethodFind(TModel response)
-	{
-		mock
-			.Setup(p => p.FindAsync(It.IsAny<int>()))
-			.ReturnsAsync(response);
-
-		return this;
-	}
-
+	
 	protected BaseRepositoryBuilder<T, TModel> SetupMethodSaveChanges()
 	{
 		mock

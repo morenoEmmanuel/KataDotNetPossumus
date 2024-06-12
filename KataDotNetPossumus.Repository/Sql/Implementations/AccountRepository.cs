@@ -18,8 +18,7 @@ public class AccountRepository : BaseSqlRepository<Account>, IAccountRepository
 	}
 
 	#endregion
-
-
+	
 	#region Public Methods
 
 	/// <summary>

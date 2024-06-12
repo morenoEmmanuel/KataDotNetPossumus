@@ -26,16 +26,13 @@ namespace KataDotNetPossumus.Api.Controllers
 		#region Endpoints
 
 		/// <summary>
-		/// Gets the balance information by user ID.
+		/// Gets the balance information.
 		/// </summary>
-		/// <param name="idUser">
-		///		<para>The user ID.</para>
-		/// </param>
 		/// <returns>The balance information.</returns>
-		[HttpGet("balance/{idUser}")]
-		public async Task<DtoBalance> BalanceByUser([FromRoute] int? idUser)
+		[HttpGet("balance")]
+		public async Task<DtoBalance> BalanceByUser()
 		{
-			return await walletBusiness.GetBalanceByUserAsync(idUser);
+			return await walletBusiness.GetBalanceByUserAsync();
 		}
 
 		/// <summary>

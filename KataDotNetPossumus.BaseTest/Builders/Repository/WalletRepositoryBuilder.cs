@@ -11,7 +11,7 @@ public class WalletRepositoryBuilder : BaseRepositoryBuilder<IWalletRepository, 
 	public WalletRepositoryBuilder SetupMethodGetWalletByUser(Wallet? response)
 	{
 		mock
-			.Setup(p => p.GetWalletByUserAsync(It.IsAny<int>()))
+			.Setup(p => p.GetWalletByUserAsync())
 			.ReturnsAsync(response);
 
 		return this;

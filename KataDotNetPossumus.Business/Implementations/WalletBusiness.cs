@@ -34,17 +34,12 @@ public class WalletBusiness : IWalletBusiness
 	#region Public Methods
 
 	/// <summary>
-	/// Gets the balance information by user ID.
+	/// Gets the balance information.
 	/// </summary>
-	/// <param name="idUser">
-	///		<para>The user ID.</para>
-	/// </param>
 	/// <returns>The balance information.</returns>
-	public async Task<DtoBalance> GetBalanceByUserAsync(int? idUser)
+	public async Task<DtoBalance> GetBalanceByUserAsync()
 	{
-		if (!idUser.HasValue) throw new RequiredDataException(Labels.User);
-		
-		var wallet = await walletRepository.GetWalletByUserAsync(idUser.Value);
+		var wallet = await walletRepository.GetWalletByUserAsync();
 
 		if (wallet == null) throw new NotFoundException(Labels.Wallet);
 
@@ -120,7 +115,9 @@ public class WalletBusiness : IWalletBusiness
 		if (request == null) throw new BadRequestException(nameof(request));
 		
 		if (request.Amount <= 0) throw new RequiredDataException(Labels.Amount);
-
+		
+		var idNewCurrency = default(int);
+		
 		if (transactionType == TransactionType.EXCHANGE)
 		{
 			if (string.IsNullOrWhiteSpace(newCurrency)) throw new RequiredDataException(Labels.Currency);
@@ -128,11 +125,11 @@ public class WalletBusiness : IWalletBusiness
 			var exchangeCurrency = await currencyBusiness.GetByShortNameAsync(newCurrency);
 
 			if (exchangeCurrency == null) throw new NotFoundException(Labels.Currency);
+
+			idNewCurrency = exchangeCurrency.IdCurrency;
 		}
 		
-		if (!request.IdWallet.HasValue) throw new RequiredDataException(Labels.Wallet);
-		
-		var wallet = await walletRepository.FindAsync(request.IdWallet.Value);
+		var wallet = await walletRepository.GetWalletByUserAsync();
 
 		if (wallet == null) throw new NotFoundException(Labels.Wallet);
 
@@ -161,7 +158,8 @@ public class WalletBusiness : IWalletBusiness
 			IdAccount = account?.IdAccount ?? default(int),
 			IdWallet = wallet.IdWallet,
 			IdCurrency = currency.IdCurrency,
-			TransactionAmount = request.Amount.Value
+			TransactionAmount = request.Amount.Value,
+			IdNewCurrency = idNewCurrency
 		};
 	}
 

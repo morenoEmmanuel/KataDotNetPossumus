@@ -1,8 +1,7 @@
 ﻿namespace KataDotNetPossumus.Enumerations
 {
-	public class AppConsts
+	public class AppConstant
 	{
-		// Newest and default version of an app 
 		public const string DefaultApiVersion = "1.0";
 	}
 

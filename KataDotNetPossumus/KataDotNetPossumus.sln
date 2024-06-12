@@ -31,6 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataDotNetPossumus.Enumerat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataDotNetPossumus.Utils", "..\KataDotNetPossumus.Utils\KataDotNetPossumus.Utils.csproj", "{D33DC2A4-2B17-46DB-A083-C516C3104003}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Base", "Data Base", "{43FAB976-21FF-454F-876E-ABA2CA11A246}"
+	ProjectSection(SolutionItems) = preProject
+		Create schema.sql = Create schema.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

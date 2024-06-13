@@ -114,7 +114,7 @@ public class WalletBusiness : IWalletBusiness
 	{
 		if (request == null) throw new BadRequestException(nameof(request));
 		
-		if (request.Amount <= 0) throw new RequiredDataException(Labels.Amount);
+		if (request.Amount is null or <= 0) throw new RequiredDataException(Labels.Amount);
 		
 		var idNewCurrency = default(int);
 		

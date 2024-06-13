@@ -23,7 +23,7 @@ public class CurrencyBusinessBuilder
 
 	#region Options
 
-	public CurrencyBusinessBuilder SetupMethodSaveAccountHistoryAsync(Currency response)
+	public CurrencyBusinessBuilder SetupMethodByShortName(Currency response)
 	{
 		mock
 			.Setup(p => p.GetByShortNameAsync(It.IsAny<string>()))

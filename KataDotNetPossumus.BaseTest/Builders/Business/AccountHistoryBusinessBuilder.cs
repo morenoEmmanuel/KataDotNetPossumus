@@ -23,7 +23,7 @@ public class AccountHistoryBusinessBuilder
 
 	#region Options
 
-	public AccountHistoryBusinessBuilder SetupMethodSaveAccountHistoryAsync()
+	public AccountHistoryBusinessBuilder SetupMethodSaveAccountHistory()
 	{
 		mock
 			.Setup(p => p.SaveAccountHistoryAsync(It.IsAny<AccountHistory>()))

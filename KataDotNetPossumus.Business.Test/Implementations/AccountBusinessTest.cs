@@ -95,7 +95,7 @@ public class AccountBusinessTest
 			.Build();
 
 		var accountHistoryBusiness = new AccountHistoryBusinessBuilder()
-			.SetupMethodSaveAccountHistoryAsync()
+			.SetupMethodSaveAccountHistory()
 			.Build();
 
 		var contextData = new ContextDataBuilder()
@@ -107,7 +107,7 @@ public class AccountBusinessTest
 			.Build();
 
 		var currencyBusiness = new CurrencyBusinessBuilder()
-			.SetupMethodSaveAccountHistoryAsync(new Currency())
+			.SetupMethodByShortName(new Currency())
 			.Build();
 
 		var sut = new AccountBusiness(
@@ -153,7 +153,7 @@ public class AccountBusinessTest
 			.Build();
 
 		var accountHistoryBusiness = new AccountHistoryBusinessBuilder()
-			.SetupMethodSaveAccountHistoryAsync()
+			.SetupMethodSaveAccountHistory()
 			.Build();
 
 		var contextData = new ContextDataBuilder()
@@ -165,7 +165,7 @@ public class AccountBusinessTest
 			.Build();
 
 		var currencyBusiness = new CurrencyBusinessBuilder()
-			.SetupMethodSaveAccountHistoryAsync(new Currency())
+			.SetupMethodByShortName(new Currency())
 			.Build();
 
 		var sut = new AccountBusiness(

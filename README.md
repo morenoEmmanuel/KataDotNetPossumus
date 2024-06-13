@@ -41,3 +41,9 @@ Dentro de la carpeta "Data Base" se encuentra un script para la creacion de la b
 
 Swagger está configurado para proporcionar documentación interactiva de la API. 
 Cuando ejecutas el proyecto, puedes acceder a Swagger en https://localhost:7069/swagger/index.html para ver y probar los endpoints de la API.
+
+### Credenciales
+
+Las credenciales para autenticarse:
+User: Emmanuel
+Password: 123
